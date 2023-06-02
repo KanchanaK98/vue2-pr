@@ -25,7 +25,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="input-group-3" label="Food:" label-for="input-3">
+      <b-form-group id="input-group-3" label="Category:" label-for="input-3">
         <b-form-select
           id="input-3"
           v-model="form.food"
@@ -48,9 +48,9 @@
       <b-button type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
-    <b-card class="mt-3" header="Form Data Result">
+    <!-- <b-card class="mt-3" header="Form Data Result">
       <pre class="m-0">{{ form }}</pre>
-    </b-card>
+    </b-card> -->
   </div>
 </template>
 
@@ -64,14 +64,22 @@
           food: null,
           checked: []
         },
-        foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
+        foods: [{ text: 'Select One', value: null }, 'SE', 'SSE', 'QA', 'SQA'],
         show: true
       }
     },
     methods: {
       onSubmit(event) {
-        event.preventDefault()
-        alert(JSON.stringify(this.form))
+        event.preventDefault();
+        if(this.form.email == "kan@gmail.com" && this.form.name == "Kanchana")
+        {
+          //alert("Submitted Successfully !");
+          router.push(`/alert`)
+
+        }else{
+          alert("Submitted Unsuccessfully !");
+        }
+        // alert(JSON.stringify(this.form))
       },
       onReset(event) {
         event.preventDefault()
